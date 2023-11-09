@@ -16,40 +16,61 @@ public class Praktikum3 {
     public static void main(String[] args) {
 
         Random random = new Random();
+        int intHurufAwal = 0;
         int intLength = 0;
         String strKarakter = "";
         String strVokal = "aiueo";
         String strKonsonan = "bcdfghjklmnpqrstvwxyz";
+        String strHuruf = "abcdefghijklmnopqrstuvwxyz";
 
-        intLength = random.nextInt(12, 26);
+        intHurufAwal = random.nextInt(0, 2);
+        intLength = random.nextInt(12, 25); //karena satu huruf sudah masuk ke intHurufAwal
 
-        for(int i = 0; i < 8; i++)
+        if(intHurufAwal == 0)
         {
-            if(i % 2 == 0)
+            strKarakter = strKarakter + strVokal.charAt(random.nextInt(1, 6)-1);
+        }
+        else
+        {
+            strKarakter = strKarakter + strKonsonan.charAt(random.nextInt(1, 22)-1);
+        }
+
+        if(intHurufAwal == 0)
+        {
+            for(int i = 1; i < 8; i++)
             {
-                strKarakter = strKarakter + strVokal.charAt(random.nextInt(1, 6)-1);
+                if(i % 2 == 0)
+                {
+                    strKarakter = strKarakter + strVokal.charAt(random.nextInt(1, 6)-1);
+                }
+                else
+                {
+                    strKarakter = strKarakter + strKonsonan.charAt(random.nextInt(1, 22)-1);
+                }
             }
-            else
+        }
+        else
+        {
+            for(int i = 1; i < 8; i++)
             {
-                strKarakter = strKarakter + strKonsonan.charAt(random.nextInt(1, 22)-1);
+                if(i % 2 != 0)
+                {
+                    strKarakter = strKarakter + strVokal.charAt(random.nextInt(1, 6)-1);
+                }
+                else
+                {
+                    strKarakter = strKarakter + strKonsonan.charAt(random.nextInt(1, 22)-1);
+                }
             }
         }
 
         for(int i = 7; i < intLength; i++)
         {
-            if(i % 2 == 0)
-            {
-                strKarakter = strKarakter + strVokal.charAt(random.nextInt(1, 6)-1);
-            }
-            else
-            {
-                strKarakter = strKarakter + strKonsonan.charAt(random.nextInt(1, 22)-1);
-            }
+            strKarakter = strKarakter + strHuruf.charAt(random.nextInt(1, 27)-1);
         }
 
         String strHurufAwal = strKarakter.substring(0, 1).toUpperCase();
         String strHurufLainnya = strKarakter.substring(1);
-        String strKata = strHurufAwal + strHurufLainnya;
-        System.out.println(strKata);
+        System.out.println(strHurufAwal + strHurufLainnya);
     }
 }
