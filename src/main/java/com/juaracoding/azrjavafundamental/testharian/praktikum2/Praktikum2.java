@@ -22,16 +22,23 @@ public class Praktikum2 {
 
         System.out.println("Masukkan Angka : ");
 
-        while(isInput){
-            try{
+        while(isInput)
+        {
+            try
+            {
                 int intAngka = scan.nextInt();
                 sum += intAngka;
                 jmlAngka++;
-            } catch(Exception e){
-                if(jmlAngka > 0){
+            }
+            catch(Exception e)
+            {
+                if(jmlAngka > 0)
+                {
                     double rataRata = (double) sum/jmlAngka;
                     System.out.println("Rata-rata : "+rataRata);
-                } else{
+                }
+                else
+                {
                     System.out.println("Angka Belum Dimasukkan.");
                 }
                 break;
